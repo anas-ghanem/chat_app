@@ -1,25 +1,31 @@
+import 'package:chat_app/conset.dart';
 import 'package:flutter/material.dart';
 
 class custom_button extends StatelessWidget {
-  String text;
-   custom_button({required this.text,required this.onPressed});
-   VoidCallback? onPressed;
+  final String text;
+  final VoidCallback? onPressed;
+
+  const custom_button({super.key, required this.text, required this.onPressed});
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: onPressed,
-      child: Container(
-        decoration: BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.circular(10),
+    return SizedBox(
+      width: double.infinity,
+      height: 54,
+      child: ElevatedButton(
+        onPressed: onPressed,
+        style: ElevatedButton.styleFrom(
+          backgroundColor: kprimarykey,
+          foregroundColor: Colors.white,
+          elevation: 0,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(16),
+          ),
+          padding: const EdgeInsets.symmetric(horizontal: 18),
         ),
-        width: double.infinity,
-        height: 35,
         child: Text(
-         text,
-          textAlign: TextAlign.center,
-          style: TextStyle(color: Color(0xff2B475E), fontSize: 20),
+          text,
+          style: const TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
         ),
       ),
     );
